@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Animation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <div class="img-box">
+        <img src="image/transparent.png" width="100%">
+        <div class="img-wrap">
+            <img src="image/original.jpg" id="original_img">
+        </div>
+        <span id="line" >
+            <img src="image/arrow.png" class="arrow">
+        </span>
+    </div>
+    </div>
+    <script>
+        var Img_Box = document.querySelector(".img-box");
+        var Img_Wrap = document.querySelector(".img-wrap");
+        var original_img = document.getElementById("original_img")
+        var line = document.getElementById("line")
+
+        original_img.style.width = Img_Box.offsetWidth + "px";
+
+    
+        var left_space = Img_Box.offsetLeft;
+        Img_Box.onmousemove = function(e){
+            var box_width = (e.pageX - left_space) + "px";
+            Img_Wrap.style.width = box_width;
+            line.style.left = box_width;
+        }
+    </script>
+</body>
+</html>
